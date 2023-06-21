@@ -1,0 +1,90 @@
+// import React from "react";
+
+
+// //create your first component
+// const Home = () => {
+// 	// Crear un estado
+// 	// const [estado, setter] = React.useState(estadoInicial)
+// 	const [todoList, setTodoList] = React.useState([])
+// 	const [inputValue, setInputValue] = React.useState("")
+// 	const API_URL = "https://assets.breatheco.de/apis/fake/todos/user/edgarnuevo"
+
+// 	// Añadir nuevo elemento
+// 	const handleAddNewTodo = () => {
+// 		setTodoList(prev => [...prev, { label: inputValue, done: false }])
+// 	}
+
+// 	// Eliminar elemento
+// 	const handleDeleteTodo = (indexToRemove) => {
+// 		setTodoList(prev => prev.filter((element, index) => index !== indexToRemove))
+// 	}
+
+// 	// Cuando le damos al eneter salta esta función
+// 	const handleOnKeyDown = (e) => {
+// 		// Conseguir que tecla se ha presionado
+// 		const keyPressed = e.key
+
+// 		// Miramos que inputValue no esté vacío y que la tecla sea el enter
+// 		if (inputValue && keyPressed === "Enter") {
+// 			// Añadimos un nuevo elemento
+// 			handleAddNewTodo()
+// 			// Limpiamos el unput Volvemos a poner input value como vacío
+// 			setInputValue("")
+// 		}
+// 	}
+
+// 	React.useEffect(() => {
+// 		fetch(API_URL)
+// 			.then(promiseResponse => {
+// 				if (promiseResponse.ok)
+// 					return promiseResponse.json().then(data => setTodoList(data))
+
+// 				// Si no hay ningún usuario creado lo creamos
+// 				const createUserOptions = {
+// 					method: "POST",
+// 					body: JSON.stringify([]),
+// 					headers: { "Content-Type": "application/json" }
+// 				}
+// 				fetch(API_URL, createUserOptions)
+
+// 			})
+
+// 	}, [])
+
+// 	React.useEffect(() => {
+
+// 		if (todoList.length > 0) {
+// 			const udpateTodoOptions = {
+// 				method: "PUT",
+// 				body: JSON.stringify(todoList),
+// 				headers: { "Content-Type": "application/json" }
+// 			}
+// 			fetch(API_URL, udpateTodoOptions)
+// 		}
+
+// 	}, [todoList])
+
+// 	return (
+// 		<div className="text-center">
+// 			<h1>Todo list</h1>
+// 			<hr />
+// 			<input onKeyDown={handleOnKeyDown} value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+// 			<ul style={{ margin: "1rem" }}>
+// 				{
+// 					todoList.map((singleTodo, index) => {
+// 						return <section key={index} style={{ display: "flex", justifyContent: "space-between" }}>
+// 							<li >{singleTodo.label}</li>
+// 							<button onClick={() => handleDeleteTodo(index)}>{`Eliminar ${singleTodo.label}`}</button>
+// 						</section>
+
+
+// 					})
+// 					// 
+// 				}
+// 			</ul>
+// 			<button>Delete all</button>
+// 		</div>
+// 	);
+// };
+
+// export default Home;
